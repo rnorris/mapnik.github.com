@@ -155,14 +155,15 @@ map.load('./test/stylesheet.xml', function(err,map) {
 #include <mapnik/image.hpp>
 #include <mapnik/image_util.hpp>
 
-main() {
+int main() {
 	mapnik::Map m(256,256);
-	mapnik::load_map(m, 'path/to/file.xml');
+	mapnik::load_map(m, "path/to/file.xml");
 	m.zoom_all();
 	mapnik::image_rgba8 im(256,256);
 	mapnik::agg_renderer<mapnik::image_rgba8> ren(m, im);
 	ren.apply();
-	mapnik::save_to_file(im, 'the_image.png');
+	mapnik::save_to_file(im, "the_image.png");
+	return 0;
 }
 {% endhighlight %}
 						</div>
